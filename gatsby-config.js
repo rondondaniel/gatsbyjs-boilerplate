@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
     title: "sandbox-project",
+    siteUrl: "https://www.yourdomain.tld",
   },
   plugins: [
     "gatsby-plugin-image",

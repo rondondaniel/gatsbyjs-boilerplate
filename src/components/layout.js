@@ -11,13 +11,13 @@ import {
 
 const Layout = ({ pageTitle, children }) => {
   const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
+  query {
+    site {
+      siteMetadata {
+        title
       }
-    } 
+    }
+  } 
   `)
 
   return (

@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "sandbox-project",
+    title: "My sandbox Project",
     siteUrl: "https://www.yourdomain.tld",
   },
   plugins: [
@@ -14,5 +14,6 @@ module.exports = {
       }
     },
     "gatsby-plugin-mdx",
+    "gatsby-transformer-sharp",
   ],
 };

@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
-import Favicon from "/public/favicon-32x32.png"
+import favicon from "/public/favicon-32x32.png"
 import { useStaticQuery, graphql } from "gatsby";
 
-const SEO = ({ title, description, slug, keywords }) => {
+const SEO = ({ title, description, image, slug, keywords }) => {
     const data = useStaticQuery(graphql`
       query {
         site {
@@ -14,39 +14,49 @@ const SEO = ({ title, description, slug, keywords }) => {
             author
             keywords
             siteUrl
+            twitter
           }
         }
  
       }
     `);
+    
+    const metaTitle = data.site.siteMetadata.title
+    const metaKeywords = data.site.siteMetadata.keywords
+    const metaDescription = description || data.site.siteMetadata.description
+    const canonical = slug ? `${data.site.siteMetadata.siteUrl}${slug}` : null
+    const twitterSite = data.site.siteMetadata.twitter
+    const siteAuthor = data.site.siteMetadata.author
+    const ogImage = `${data.site.siteMetadata.siteUrl}${image}` 
 
     return (
       <Helmet htmlAttributes={{ lang: `en` }}>
-        <title>{title} | {data.site.siteMetadata.title}</title>
-        <meta 
-          name="description"
-          content={description || data.site.siteMetadata.description} 
-        />
-        <meta
-          name="keywords"
-          content={keywords || data.site.siteMetadata.keywords}
-        />
-        <link rel="canonical" href={`${data.site.siteMetadata.siteUrl}${slug}`} />
-        <link rel="shortcut icon" href={Favicon} />
+        <title>{title} | {metaTitle}</title>
+        <meta name="description" content={metaDescription} />
+        <meta name="keywords" content={keywords || metaKeywords} />
+        <link rel="canonical" href={canonical} />
+        <link rel="shortcut icon" href={favicon} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content={twitterSite} />
+        <meta name="twitter:creator" content={siteAuthor} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={metaDescription} />
+        <meta name="og:title" content={title} />
+        <meta name="og:type" content="website" />
+        <meta name="og:desription" content={metaDescription} />
+        <meta name="og:url" content={canonical} />
+        <meta name="og:site_name" content={metaTitle} />
+        <meta name="og:image" content={ogImage} />
       </Helmet>
     );
 };
 
 SEO.propTypes = {
-    title: PropTypes.string,
+    title: PropTypes.string.isRequired, // make title required
     description: PropTypes.string,
+    image: PropTypes.string,
     slug: PropTypes.string,
+    keywords: PropTypes.string,
 };
-
-SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``,
-}
 
 export default SEO;

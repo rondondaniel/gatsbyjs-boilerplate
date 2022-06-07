@@ -5,6 +5,7 @@ module.exports = {
     description: "This is my sandbox project",
     author: "myself",
     keywords: "key1, key2, key3",
+    twitter: "@sandbox"
   },
   plugins: [
     "gatsby-plugin-image",

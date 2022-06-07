@@ -11,6 +11,7 @@ const IndexPage = () => {
         description="This is the home page"
         slug="/"
         keywords={"homekey1, homekey2, etc"}
+        image='https://placeimg.com/300/300'
       />
        <h1>I'm making this by following the Gatsby Tutorial.</h1>
        <StaticImage

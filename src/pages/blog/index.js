@@ -6,14 +6,14 @@ const BlogPage = ({ data }) => {
   return (
     <Layout pageTitle="My blog Posts">
       {
-        data.allMdx.nodes.map(node => (
+        data.allPrismicBlogPost.nodes.map(node => (
           <article key={node.id}>
             <h2>
-              <Link to={`/blog/${node.slug}`}>
-                {node.frontmatter.title}
+              <Link to={`/blog/${node.uid}`}>
+                {node.data.title.text}
               </Link>
             </h2>
-            <p>Posted: {node.frontmatter.date}</p>
+            <p>Posted: {node.data.date}</p>
           </article>
         ))
       }
@@ -23,14 +23,16 @@ const BlogPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    allMdx(sort: {fields: frontmatter___date, order: DESC}) {
+    allPrismicBlogPost(sort: {fields: data___date, order: DESC}) {
       nodes {
-        frontmatter {
-          date(formatString: "MMMM D, YYYY")
-          title
+        data {
+          title {
+            text
+          }
+          date
         }
         id
-        slug
+        uid
       }
     }
   }

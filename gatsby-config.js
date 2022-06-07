@@ -8,6 +8,7 @@ module.exports = {
     twitter: "@sandbox"
   },
   plugins: [
+    "gatsby-plugin-sitemap",
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     {
@@ -43,6 +44,14 @@ module.exports = {
         // Any invalid keyword or empty string defaults to `anonymous`
         crossOrigin: `use-credentials`,
       },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://www.example.com',
+        sitemap: 'https://www.example.com/sitemap.xml',
+        policy: [{userAgent: '*', allow: '/'}]
+      }
     }
   ],
 };

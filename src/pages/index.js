@@ -1,7 +1,7 @@
-import * as React from "react"
-import Layout from "../components/layout"
-import { StaticImage } from "gatsby-plugin-image"
-import Seo from "../components/seo"
+import * as React from "react";
+import Layout from "../components/layout";
+import { StaticImage } from "gatsby-plugin-image";
+import Seo from "../components/seo";
 
 const IndexPage = () => {
   return (
@@ -11,7 +11,7 @@ const IndexPage = () => {
         description="This is the home page"
         slug="/"
         keywords={"homekey1, homekey2, etc"}
-        image='https://placeimg.com/300/300'
+        image="src/images/default-social.jpg"
       />
        <h1>I'm making this by following the Gatsby Tutorial.</h1>
        <StaticImage

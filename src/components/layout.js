@@ -1,5 +1,6 @@
-import * as React from 'react'
-import { Link , useStaticQuery, graphql } from 'gatsby'
+import * as React from 'react';
+import PropTypes from "prop-types"
+import { Link , useStaticQuery, graphql } from 'gatsby';
 import {
     container,
     heading,
@@ -7,7 +8,8 @@ import {
     navLinkItem,
     navLinkText,
     siteTitle
-  } from './layout.module.css'
+  } from './layout.module.css';
+import Footer from './footer';
 
 const Layout = ({ pageTitle, children }) => {
   const data = useStaticQuery(graphql`
@@ -46,8 +48,13 @@ const Layout = ({ pageTitle, children }) => {
           <h1 className={heading}>{pageTitle}</h1>
           {children}
         </main>
+        <Footer />
       </div>
   )
+}
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
 }
 
 export default Layout

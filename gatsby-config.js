@@ -17,10 +17,19 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     {
+      // try to delete because using Prismic API
       resolve: "gatsby-source-filesystem",
       options: {
         name: `blog`,
         path: `${__dirname}/blog`
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+        ignore: [`**/\.txt`],
       }
     },
     "gatsby-plugin-mdx",

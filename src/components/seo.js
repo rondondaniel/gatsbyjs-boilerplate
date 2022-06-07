@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
-import favicon from "/public/favicon-32x32.png";
+//import favicon from "/public/favicon-32x32.png";
 import { useStaticQuery, graphql } from "gatsby";
 
 const SEO = ({ title, description, image, slug, keywords }) => {
@@ -17,7 +17,12 @@ const SEO = ({ title, description, image, slug, keywords }) => {
             twitter
           }
         }
- 
+        favicon: file(name: { eq: "favicon" }) {
+          publicURL
+        }
+        social: file(name: { eq: "default-social" }) {
+          publicURL
+        }
       }
     `);
     
@@ -27,7 +32,8 @@ const SEO = ({ title, description, image, slug, keywords }) => {
     const canonical = slug ? `${data.site.siteMetadata.siteUrl}${slug}` : null
     const twitterSite = data.site.siteMetadata.twitter
     const siteAuthor = data.site.siteMetadata.author
-    const ogImage = `${data.site.siteMetadata.siteUrl}${image}` 
+    const socialImage = data.social.publicURL
+    const favicon = data.favicon.publicURL 
 
     return (
       <Helmet htmlAttributes={{ lang: `en` }}>
@@ -46,7 +52,7 @@ const SEO = ({ title, description, image, slug, keywords }) => {
         <meta name="og:desription" content={metaDescription} />
         <meta name="og:url" content={canonical} />
         <meta name="og:site_name" content={metaTitle} />
-        <meta name="og:image" content={ogImage} />
+        <meta name="og:image" content={socialImage} />
       </Helmet>
     );
 };

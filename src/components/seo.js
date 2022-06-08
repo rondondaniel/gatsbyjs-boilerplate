@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Helmet from "react-helmet";
-//import favicon from "/public/favicon-32x32.png";
-import { useStaticQuery, graphql } from "gatsby";
+import React from "react"
+import PropTypes from "prop-types"
+import Helmet from "react-helmet"
+
+import { useStaticQuery, graphql } from "gatsby"
 
 const SEO = ({ title, description, image, slug, keywords }) => {
     const data = useStaticQuery(graphql`
@@ -24,7 +24,7 @@ const SEO = ({ title, description, image, slug, keywords }) => {
           publicURL
         }
       }
-    `);
+    `)
     
     const metaTitle = data.site.siteMetadata.title
     const metaKeywords = data.site.siteMetadata.keywords
@@ -54,8 +54,8 @@ const SEO = ({ title, description, image, slug, keywords }) => {
         <meta name="og:site_name" content={metaTitle} />
         <meta name="og:image" content={socialImage} />
       </Helmet>
-    );
-};
+    )
+}
 
 SEO.propTypes = {
     title: PropTypes.string.isRequired, // make title required
@@ -63,6 +63,6 @@ SEO.propTypes = {
     image: PropTypes.string,
     slug: PropTypes.string,
     keywords: PropTypes.string,
-};
+}
 
-export default SEO;
+export default SEO

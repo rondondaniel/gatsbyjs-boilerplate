@@ -6,13 +6,7 @@ import Seo from "../components/seo";
 const IndexPage = () => {
   return (
      <Layout pageTitle="Home Page">
-       <Seo 
-        title="Home Page"
-        description="This is the home page"
-        slug="/"
-        keywords={"homekey1, homekey2, etc"}
-        image="src/images/default-social.jpg"
-      />
+       <Seo title="Home Page" />
        <h1>I'm making this by following the Gatsby Tutorial.</h1>
        <StaticImage
          alt="Clifford, a reddish-brown pitbull, posing on a couch and looking stoically at the camera"

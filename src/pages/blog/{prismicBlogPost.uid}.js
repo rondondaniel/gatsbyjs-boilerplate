@@ -5,8 +5,8 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import { PrismicRichText } from '@prismicio/react'
 
-import Layout from "../../components/layout"
-import Seo from "../../components/seo"
+import Layout from "../../components/Layout"
+import Seo from "../../components/Seo"
 
 const BlogPost = ({ data }) => {
 

@@ -14,7 +14,7 @@ exports.linkResolver = (doc) => {
       return `src/pages/${doc.uid}`
     }
 
-    // URL for a page type
+    // URL for a blog type
     if (doc.type === 'blog-post') {
       return `src/pages/blog`
     }

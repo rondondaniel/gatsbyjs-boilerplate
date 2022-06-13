@@ -1,12 +1,10 @@
 import * as React from "react"
-
-import { StaticImage } from "gatsby-plugin-image"
 import { graphql } from 'gatsby'
 import { SliceZone } from "@prismicio/react"
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import Hero from "../components/hero"
+import Layout from "../components/Layout"
+import Seo from "../components/Seo"
+import Hero from "../components/Hero"
 import { components } from "../slices"
 
 const IndexPage = ({ data }) => {
@@ -28,11 +26,6 @@ const IndexPage = ({ data }) => {
         backgroundUrl={imageBannerUrl}
       />
       <SliceZone slices={data.prismicHomePage.data.body} components={components}/>
-      <p>I'm making this by following the Gatsby Tutorial.</p>
-      <StaticImage
-        alt="Clifford, a reddish-brown pitbull, posing on a couch and looking stoically at the camera"
-        src="../images/cliff.jpeg"
-      />
     </Layout>
   )
 }
@@ -63,7 +56,8 @@ export const data = graphql`
             slice_type
           }
           ...HomePageDataBodyVideoHighlights
-
+          ...HomePageDataBodyFeatures
+          ...HomePageDataBodyCallToAction          
         }
       }
     }

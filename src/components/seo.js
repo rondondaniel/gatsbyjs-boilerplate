@@ -4,7 +4,7 @@ import Helmet from "react-helmet"
 
 import { useStaticQuery, graphql } from "gatsby"
 
-const SEO = ({ title, description, image, slug, keywords }) => {
+const Seo = ({ title, description, image, slug, keywords }) => {
     const data = useStaticQuery(graphql`
       query {
         site {
@@ -57,7 +57,7 @@ const SEO = ({ title, description, image, slug, keywords }) => {
     )
 }
 
-SEO.propTypes = {
+Seo.propTypes = {
     title: PropTypes.string.isRequired, // make title required
     description: PropTypes.string,
     image: PropTypes.string,
@@ -65,4 +65,4 @@ SEO.propTypes = {
     keywords: PropTypes.string,
 }
 
-export default SEO
+export default Seo

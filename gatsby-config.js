@@ -13,7 +13,6 @@ module.exports = {
     twitter: "@sandbox"
   },
   plugins: [
-    "gatsby-plugin-sitemap",
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     {
@@ -59,6 +58,7 @@ module.exports = {
         crossOrigin: `use-credentials`,
       },
     },
+    "gatsby-plugin-sitemap",
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {

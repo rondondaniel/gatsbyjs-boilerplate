@@ -9,7 +9,7 @@ import Seo from "../components/Seo"
 
 import { components } from "../slices"
 
-const Page = ({ data }) => {
+const PageTemplate = ({ data }) => {
   if (!data) return null
   const doc = data.prismicPage.data
 
@@ -48,4 +48,4 @@ export const query = graphql`
   }
 `
 
-export default Page
+export default PageTemplate

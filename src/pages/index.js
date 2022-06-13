@@ -7,7 +7,7 @@ import Seo from "../components/Seo"
 import Hero from "../components/Hero"
 import { components } from "../slices"
 
-const IndexPage = ({ data }) => {
+const HomeTemplate = ({ data }) => {
   const pageTitle = "Sandbox AI"
   const bannerTitle = data.prismicHomePage.data.title_of_banner.text
   const bannerDescription = data.prismicHomePage.data.banner_description.text
@@ -64,4 +64,4 @@ export const data = graphql`
   }
   `
 
-export default IndexPage
+export default HomeTemplate

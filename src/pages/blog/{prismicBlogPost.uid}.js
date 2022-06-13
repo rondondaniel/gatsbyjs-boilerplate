@@ -8,7 +8,7 @@ import { PrismicRichText } from "@prismicio/react"
 import Layout from "../../components/Layout"
 import Seo from "../../components/Seo"
 
-const BlogPost = ({ data }) => {
+const BlogPostTemplate = ({ data }) => {
 
   const image = getImage(data.prismicBlogPost.data.hero_image)
   const imageURL = data.prismicBlogPost.data.hero_image.url
@@ -79,4 +79,4 @@ export const data = graphql`
 }
 `
 
-export default BlogPost
+export default BlogPostTemplate

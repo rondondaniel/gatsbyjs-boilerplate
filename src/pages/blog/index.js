@@ -5,7 +5,7 @@ import { Link, graphql } from "gatsby"
 import Layout from "../../components/Layout"
 import Seo from "../../components/Seo"
 
-const BlogPage = ({ data }) => {
+const BlogPageTemplate = ({ data }) => {
   const pageTitle = "Blog Posts"
   const description = "Find all the Blog posts of the site"
   const slug = "/blog"
@@ -61,4 +61,4 @@ export const data = graphql`
   }
 `
 
-export default BlogPage
+export default BlogPageTemplate

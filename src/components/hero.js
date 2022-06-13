@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { PrismicLink } from '@prismicio/react'
+import * as React from "react"
+import { PrismicLink } from "@prismicio/react"
 
 export const Hero = ({
   title,

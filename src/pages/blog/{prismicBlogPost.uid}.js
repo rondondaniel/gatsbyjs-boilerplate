@@ -3,7 +3,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-import { PrismicRichText } from '@prismicio/react'
+import { PrismicRichText } from "@prismicio/react"
 
 import Layout from "../../components/Layout"
 import Seo from "../../components/Seo"

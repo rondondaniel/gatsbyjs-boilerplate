@@ -1,12 +1,10 @@
-import React from "react"
+import React from 'react'
+import { graphql } from 'gatsby'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { PrismicRichText } from '@prismicio/react'
 
-import { graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
-
-import { PrismicRichText } from "@prismicio/react"
-
-import Layout from "../../components/Layout"
-import Seo from "../../components/Seo"
+import Layout from '../../components/Layout'
+import Seo from '../../components/Seo'
 
 const BlogPostTemplate = ({ data }) => {
 
@@ -15,11 +13,11 @@ const BlogPostTemplate = ({ data }) => {
   const imageAlt = data.prismicBlogPost.data.hero_image.alt
   const title = data.prismicBlogPost.data.title.text
   const description = data.prismicBlogPost.data.chapo.text
-  const postDate = data.prismicBlogPost.data.date
+  const postDate = new Date(data.prismicBlogPost.last_publication_date).toLocaleDateString('en-us',{year: 'numeric',month: 'long',day: 'numeric'})
   const keywords = data.prismicBlogPost.data.keywords
   const body = data.prismicBlogPost.data.body.richText
   const tags = data.prismicBlogPost.data.tags
-  const postSlug = "/" + data.prismicBlogPost.uid
+  const postSlug = '/' + data.prismicBlogPost.uid
   const author = data.prismicBlogPost.data.author
   const id = data.allPrismicBlogPost.id
   
@@ -64,12 +62,12 @@ export const data = graphql`
         chapo {
           text
         }
-        date
         author
         keywords
         tags
       }
       uid
+      last_publication_date
     }
     allPrismicBlogPost {
       nodes {

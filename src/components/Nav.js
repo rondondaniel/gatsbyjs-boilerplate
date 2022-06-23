@@ -2,34 +2,25 @@ import React from 'react'
 import { 
     Link, 
     //graphql 
-  } from 'gatsby'
-
-import {
-    //container,
-    //heading,
-    navLinks,
-    navLinkItem,
-    navLinkText,
-    //siteTitle
-  } from './layout.module.css'
+  } from 'gatsby';
 
 const Nav = () => {
 
   return (
     <nav>
-      <ul className={navLinks}>
-        <li className={navLinkItem}>
-          <Link to='/' className={navLinkText}>
+      <ul>
+        <li>
+          <Link to="/">
             Home
           </Link>
         </li>
-        <li className={navLinkItem}>
-          <Link to='/about' className={navLinkText}>
+        <li>
+          <Link to="/about">
             About
           </Link>
         </li>
-        <li className={navLinkItem}>
-          <Link to='/blog' className={navLinkText}>
+        <li>
+          <Link to='/blog'>
             Blog
           </Link>
         </li>

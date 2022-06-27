@@ -15,9 +15,9 @@ const PageTemplate = ({ data }) => {
 
   return (
     <Layout>
-      <Seo title={data.prismicPage.data.title.text} />
-      <PrismicRichText field={data.prismicPage.data.title.richText} />        
-      <PrismicRichText field={data.prismicPage.data.chapo.richText} />      
+      <Seo title={doc.title.text} />
+      <PrismicRichText field={doc.title.richText} />        
+      <PrismicRichText field={doc.chapo.richText} />      
       <SliceZone slices={doc.body} components={components} />
     </Layout>
   )

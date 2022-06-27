@@ -2,7 +2,7 @@ import * as React from "react"
 import { graphql } from "gatsby"
 
 export const Quote = ({ slice }) => (
-  <section className="content-section quote">
+  <section>
     <blockquote>{slice.primary.quote.text}</blockquote>
   </section>
 )

@@ -39,11 +39,11 @@ const Hero = ({
   useEffect(() => setShouldShow(true), []);
 
   return (
-    <Paper className={styles.section}>
+    <Paper className={styles.section} spacing={5}>
       <Container className={styles.container} maxWidth="md">
         <Grid 
           className={styles.content} 
-          container 
+          container
           rowSpacing={3} 
           alignItems="center"
         >

@@ -30,7 +30,7 @@ const HomeTemplate = ({ data }) => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Layout pageTitle={pageTitle}>
+      <Layout pageTitle={pageTitle} isHomepage={true}>
         <Seo title={pageTitle} />
         <Hero
           title={bannerTitle}

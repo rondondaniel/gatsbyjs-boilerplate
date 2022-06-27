@@ -2,27 +2,26 @@ import * as React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby';
 
-import Nav from './Nav'
+import Header from './Header'
 import Footer from './Footer'
 
-const Layout = ({ pageTitle, children }) => {
+const Layout = ({ pageTitle, isHomepage, children }) => {
   const data = useStaticQuery(graphql`
-  query {
-    site {
-      siteMetadata {
-        title
+    query {
+      site {
+        siteMetadata {
+          title
+        }
       }
-    }
-  } 
+    } 
   `)
 
   return (
     <div>
-      <header>{data.site.siteMetadata.title}</header>
-      <Nav />
+      <Header title={data.site.siteMetadata.title} />
       <main>
-        <h1>{pageTitle}</h1>
-          {children}
+        {isHomepage ? null : <h1>{pageTitle}</h1>}
+        {children}
       </main>
       <Footer />
     </div>
@@ -30,6 +29,8 @@ const Layout = ({ pageTitle, children }) => {
 }
 
 Layout.propTypes = {
+  pageTitle: PropTypes.string,
+  isHomepage: PropTypes.bool,
   children: PropTypes.node.isRequired,
 }
 

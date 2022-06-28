@@ -39,16 +39,15 @@ const Hero = ({
   useEffect(() => setShouldShow(true), []);
 
   return (
-    <Paper className={styles.section} spacing={5}>
+    <Paper className={styles.section}>
       <Container className={styles.container} maxWidth="md">
         <Grid 
           className={styles.content} 
           container
-          rowSpacing={3} 
           alignItems="center"
         >
           <Zoom in={shouldShow}>
-            <Grid item sm={6}>
+            <Grid item sm={6} my={3}>
               <Typography component="h1" variant="h3">
                 {title}
               </Typography>             
@@ -66,7 +65,7 @@ const Hero = ({
               </Box>            
             </Grid>
           </Zoom>
-          <Grid item sm>
+          <Grid item sm my={3}>
             <GatsbyImage image={backgroundData} alt={backgroundAlt} />
           </Grid>                           
         </Grid>  

@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Header from './Header'
 import Footer from './Footer'
 
-const Layout = ({ pageTitle, isHomepage, children }) => {
+const Layout = ({ pageTitle, hasHeroSection, children }) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -18,9 +18,9 @@ const Layout = ({ pageTitle, isHomepage, children }) => {
 
   return (
     <div>
-      <Header title={data.site.siteMetadata.title} />
+      <Header />
       <main>
-        {isHomepage ? null : <h1>{pageTitle}</h1>}
+        {hasHeroSection ? '' : <h1>{pageTitle}</h1>}
         {children}
       </main>
       <Footer />

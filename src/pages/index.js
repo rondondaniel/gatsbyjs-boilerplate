@@ -30,7 +30,7 @@ const HomeTemplate = ({ data }) => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Layout pageTitle={pageTitle} isHomepage={true}>
+      <Layout pageTitle={pageTitle} hasHeroSection={true}>
         <Seo title={pageTitle} />
         <Hero
           title={bannerTitle}
@@ -42,7 +42,7 @@ const HomeTemplate = ({ data }) => {
           backggroundAlt={imageBannerAlt}
         />
         <SliceZone 
-          slices={data.prismicHomePage.data.body}
+          slices={doc.body}
           components={components}
         />
       </Layout>

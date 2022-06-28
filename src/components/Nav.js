@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby';
-import { Link } from 'gatsby'
+import { Link as GatsbyLink } from 'gatsby'
+import { makeStyles } from "@mui/styles";
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Box from '@mui/material/Box';
@@ -10,6 +11,9 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
+import Container from '@mui/material/Container';
+import Button from '@mui/material/Button';
+import { Grid } from '@mui/material';
 
 
 const drawerWidth = 240;
@@ -43,13 +47,20 @@ const Nav = () => {
 
   const topNav = data.prismicNavigations.data.body
 
+  const useStyles = makeStyles((theme) => ({
+    container: {
+      height: '100%',
+    },
+  }));
+
+  const styles = useStyles()
+
   const linkStyles = {
     color: 'white',
     display: 'inline-block',
     margin: '0 0.5rem',
     padding: '0.25rem',
-    textDecoration: 'none'
-
+    textDecoration: 'none',
   }
   const activeStyle = {
     backgroud: 'white',
@@ -57,30 +68,53 @@ const Nav = () => {
   }
 
   return (
-    <Box sx={{ display: 'flex' }}>
-      <AppBar position="sticky" color="default">
-        <Toolbar>
+    <Box 
+      sx={{
+        alignItems: "center", 
+        height: 60, 
+        display: 'flex'
+        }}
+    >
+      <AppBar component="nav" position="static" color="default" enableColorOnDark>
+       <Container className={styles.container} maxWidth="md" >
+        <Toolbar sx={{ mx: -4 }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={{ mx: 1, display: { sm: 'none' } }}
           >
             <MenuIcon />
           </IconButton>
           {topNav.map((navItem) => (          
-            <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-              <Link               
-                to={navItem.primary.nav_to}               
+            <Box 
+              sx={{ 
+                display: { 
+                  xs: 'none',
+                  sm: 'block'
+                },                
+              }
+            }>
+              <GatsbyLink               
+                to={navItem.primary.nav_to}     
                 style={linkStyles} 
-                activeStyle={activeStyle}               
-            >
+                activeStyle={activeStyle}
+              >
                 {navItem.primary.label.text}
-              </Link>     
+              </GatsbyLink>     
             </Box>
           ))}
-        </Toolbar>      
+          Contact
+          Login
+          <Button
+            variant="outlined"
+            color="secondary"
+          >
+            Sign up
+          </Button>
+        </Toolbar>
+       </Container>      
       </AppBar>
       <Box component="nav">
         <Drawer
@@ -91,8 +125,14 @@ const Nav = () => {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            display: { 
+              xs: 'block', 
+              sm: 'none'
+            },
+            '& .MuiDrawer-paper': { 
+              boxSizing: 'border-box', 
+              width: drawerWidth 
+            },
           }}
         >
           <Box 
@@ -104,13 +144,13 @@ const Nav = () => {
             <List>
               {topNav.map((navItem) => (          
               <ListItem>
-                <Link               
+                <GatsbyLink               
                   to={navItem.primary.nav_to}               
                   style={linkStyles} 
                   activeStyle={activeStyle}               
                 >
                   {navItem.primary.label.text}
-                </Link>
+                </GatsbyLink>
               </ListItem>
               ))}
             </List>

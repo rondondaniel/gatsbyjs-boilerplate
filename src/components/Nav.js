@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby';
-import { Link as GatsbyLink } from 'gatsby'
 import { makeStyles } from "@mui/styles";
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,10 +12,11 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
-import { Grid } from '@mui/material';
 
+import MenuLink from './MenuLink';
+import DrawerMenuLink from './DrawerMenuLink';
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 
 const Nav = () => {
   const data = useStaticQuery(graphql`
@@ -47,25 +47,23 @@ const Nav = () => {
 
   const topNav = data.prismicNavigations.data.body
 
-  const useStyles = makeStyles((theme) => ({
+  const useStyles = makeStyles({
     container: {
       height: '100%',
     },
-  }));
+    rightToolbar: {
+      marginLeft: "auto",
+      marginRight: -16,
+    },
+  });
 
   const styles = useStyles()
 
-  const linkStyles = {
-    color: 'white',
-    display: 'inline-block',
-    margin: '0 0.5rem',
-    padding: '0.25rem',
-    textDecoration: 'none',
-  }
-  const activeStyle = {
-    backgroud: 'white',
-    color: 'rebeccapurple'
-  }
+  // Temp dev contstant => to delete
+  const rightToolbar = [
+    "Contact",
+    "Login",
+  ]
 
   return (
     <Box 
@@ -88,31 +86,39 @@ const Nav = () => {
             <MenuIcon />
           </IconButton>
           {topNav.map((navItem) => (          
-            <Box 
-              sx={{ 
-                display: { 
-                  xs: 'none',
-                  sm: 'block'
-                },                
-              }
-            }>
-              <GatsbyLink               
-                to={navItem.primary.nav_to}     
-                style={linkStyles} 
-                activeStyle={activeStyle}
-              >
-                {navItem.primary.label.text}
-              </GatsbyLink>     
-            </Box>
+            <MenuLink
+              nav_to={navItem.primary.nav_to}
+              labelText={navItem.primary.label.text}
+            />
           ))}
-          Contact
-          Login
-          <Button
-            variant="outlined"
-            color="secondary"
-          >
-            Sign up
-          </Button>
+          <section className={styles.rightToolbar}>
+            <Toolbar>
+              {rightToolbar.map((rightItem) => (
+                <MenuLink
+                  nav_to="/404"
+                  labelText={rightItem}
+                />
+              ))}
+              <Box 
+                mx={3}
+                sx={{ 
+                  display: { 
+                    xs: 'none',
+                    sm: 'block'
+                  },                
+                }
+              }>
+                <Button
+                  href="/404"
+                  variant="outlined"
+                  color="secondary"
+                >
+                  Get Started
+                </Button>
+              </Box>
+              
+            </Toolbar>            
+          </section>          
         </Toolbar>
        </Container>      
       </AppBar>
@@ -143,16 +149,30 @@ const Nav = () => {
             <Divider />
             <List>
               {topNav.map((navItem) => (          
-              <ListItem>
-                <GatsbyLink               
-                  to={navItem.primary.nav_to}               
-                  style={linkStyles} 
-                  activeStyle={activeStyle}               
-                >
-                  {navItem.primary.label.text}
-                </GatsbyLink>
-              </ListItem>
+                <ListItem>               
+                  <DrawerMenuLink
+                    nav_to={navItem.primary.nav_to}
+                    labelText={navItem.primary.label.text}
+                  />
+                </ListItem>
               ))}
+              {rightToolbar.map((rightItem) => (
+                <ListItem>  
+                  <DrawerMenuLink
+                    nav_to="/404"
+                    labelText={rightItem}
+                  />
+                </ListItem>
+              ))}
+              <Box my={3}>
+                <Button
+                  href="/404"
+                  variant="outlined"
+                  color="secondary"
+                >
+                  Get Started
+                </Button>
+              </Box>              
             </List>
           </Box>
         </Drawer>

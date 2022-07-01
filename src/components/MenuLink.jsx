@@ -1,13 +1,13 @@
-import React from 'react'
-import { Link as GatsbyLink } from 'gatsby'
+import React from 'react';
+import { Link as GatsbyLink } from 'gatsby';
 import Box from '@mui/material/Box';
-import { makeStyles } from "@mui/styles";
+import { makeStyles } from '@mui/styles';
 
 const MenuLink = ({ nav_to, labelText, isDrawerLink }) => {
   const activeStyle = {
       backgroud: 'white',
       color: 'rebeccapurple'
-  }
+  };
 
   const useStyles = makeStyles({
       linkStyle: {
@@ -21,24 +21,39 @@ const MenuLink = ({ nav_to, labelText, isDrawerLink }) => {
   
   const styles = useStyles()
 
-  return (
-    <Box 
-      sx={{ 
-        display: { 
-          xs: 'none',
-          sm: 'block'
-        },                
-      }
-    }>
-      <GatsbyLink
-        className={styles.linkStyle}
-        to={nav_to}
-        activeStyle={activeStyle}
-      >
-        {labelText}
-      </GatsbyLink>     
-    </Box>
-  )
-}
+  if (!isDrawerLink) {
+    return (
+      <Box 
+        sx={{ 
+          display: { 
+            xs: 'none',
+            sm: 'block'
+          },                
+        }
+      }>
+        <GatsbyLink
+          className={styles.linkStyle}
+          to={nav_to}
+          activeStyle={activeStyle}
+        >
+          {labelText}
+        </GatsbyLink>     
+      </Box>
+    )
+  } else {
+    return (
+      <Box>
+        <GatsbyLink
+          className={styles.linkStyle}
+          to={nav_to}
+          activeStyle={activeStyle}
+        >
+          {labelText}
+        </GatsbyLink>     
+      </Box>
+    )
+  };
+};
+  
 
 export default MenuLink;

@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby';
-import { makeStyles } from "@mui/styles";
+import { makeStyles } from '@mui/styles';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Box from '@mui/material/Box';
@@ -14,7 +14,6 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 
 import MenuLink from './MenuLink';
-import DrawerMenuLink from './DrawerMenuLink';
 
 const drawerWidth = 200;
 
@@ -150,17 +149,19 @@ const Nav = () => {
             <List>
               {topNav.map((navItem) => (          
                 <ListItem>               
-                  <DrawerMenuLink
+                  <MenuLink
                     nav_to={navItem.primary.nav_to}
                     labelText={navItem.primary.label.text}
+                    isDrawerLink={true}
                   />
                 </ListItem>
               ))}
               {rightToolbar.map((rightItem) => (
                 <ListItem>  
-                  <DrawerMenuLink
+                  <MenuLink
                     nav_to="/404"
                     labelText={rightItem}
+                    isDrawerLink={true}
                   />
                 </ListItem>
               ))}

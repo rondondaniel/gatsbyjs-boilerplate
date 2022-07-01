@@ -1,13 +1,13 @@
-import * as React from "react"
-import { graphql } from "gatsby"
-import { SliceZone } from "@prismicio/react"
+import React from 'react';
+import { graphql } from 'gatsby';
+import { SliceZone } from '@prismicio/react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import CssBaseline from "@mui/material/CssBaseline";
+import CssBaseline from '@mui/material/CssBaseline';
 
-import Layout from "../components/Layout"
-import Seo from "../components/Seo"
-import Hero from "../components/Hero"
-import { components } from "../slices"
+import Layout from '../components/Layout';
+import Seo from '../components/Seo';
+import Hero from '../components/Hero';
+import { components } from '../slices';
 
 const theme = createTheme ({
   palette: {
@@ -48,7 +48,7 @@ const HomeTemplate = ({ data }) => {
       </Layout>
     </ThemeProvider>
   )
-}
+};
 
 export const data = graphql`
   query Homepage {
@@ -85,4 +85,4 @@ export const data = graphql`
   }
   `
 
-export default HomeTemplate
+export default HomeTemplate;

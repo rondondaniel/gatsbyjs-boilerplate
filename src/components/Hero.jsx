@@ -1,28 +1,28 @@
-import * as React from 'react'
-import { useState, useEffect } from "react";
-import { makeStyles } from "@mui/styles";
+import React from 'react'
+import { useState, useEffect } from 'react';
+import { makeStyles } from '@mui/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography';
-import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
-import Zoom from "@mui/material/Zoom";
+import Container from '@mui/material/Container';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Zoom from '@mui/material/Zoom';
 import { GatsbyImage } from 'gatsby-plugin-image';
 
 const useStyles = makeStyles((theme) => ({
   section: {
-    height: "auto",
-    backgroundImage: "", //`url(${backgroundUrl})`,
-    backgroundSize: "cover",
-    backgroundRepeat:"no-repeat",
-    backgroundPosition: "center",
+    height: 'auto',
+    backgroundImage: '', //`url(${backgroundUrl})`,
+    backgroundSize: 'cover',
+    backgroundRepeat:'no-repeat',
+    backgroundPosition: 'center',
   },
   container: {
-    height: "100%",
+    height: '100%',
   },
   content: {
-    height: "100%",
+    height: '100%',
   },
 }));
 
@@ -72,6 +72,6 @@ const Hero = ({
       </Container>
     </Paper>
   )
-}
+};
 
-export default Hero
+export default Hero;

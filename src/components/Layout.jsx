@@ -14,7 +14,7 @@ const Layout = ({ pageTitle, hasHeroSection, children }) => {
         }
       }
     } 
-  `)
+  `);
 
   return (
     <div>
@@ -26,12 +26,12 @@ const Layout = ({ pageTitle, hasHeroSection, children }) => {
       <Footer />
     </div>
   )
-}
+};
 
 Layout.propTypes = {
   pageTitle: PropTypes.string,
-  isHomepage: PropTypes.bool,
+  hasHeroSection: PropTypes.bool,
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;
